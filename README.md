@@ -69,24 +69,24 @@ You can create reactive variable from asynchronous sources using *$.gen* method:
 ```javascript
 // From setTimeout
 const fromTimer = $.gen(0, (emit) => setTimeout(
-	() => emit(10)
+    () => emit(10)
     , 1000));
 
 // From promise
 const promise = ...
 const fromPromise = $.gen(null, (emit) => promise.then(
-	(result) => emit(result));
+    (result) => emit(result));
 
 // From rxjs observables
 const observable = ...
 const fromObservable = $.gen(null, (emit) => observable.subscribe(
-	(result) => emit(result));
+    (result) => emit(result));
 
 // From user input
 const input = document.querySelector(...);
 const fromInput = $.gen(input.value, (emit) => {
-	input.onchange = (e) => {
-    	emit(e.target.value);
+    input.onchange = (e) => {
+        emit(e.target.value);
     }
 });
 ```
