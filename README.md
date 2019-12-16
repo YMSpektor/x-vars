@@ -29,8 +29,8 @@ b.$ = 10;
 console.log(c.$); // 20
 ```
 Each reactive variable represents a data stream, its *$* property (read/write) contains the current value. The *$.calc* method can take 3 arguments:
-* The function to calculate the resulting value. The number of arguments can vary
-* Array of reactive variables that affect the resulting value
+* The function to calculate the resulting value. The number of arguments can vary and corresponds the values of argument variables (see below). The very last argument contains the last value of resulting variable
+* Array of reactive variables that affect the resulting value (argument variables)
 * (optional) The reactive variable where to put the result. If not specified the new variable will be created.
 
 If you don't need a separate reactive variable, but still want to react to changes, you can call *$.calc* as a procedure:
@@ -43,7 +43,7 @@ Every calculated variable created by *$.calc* makes subscriptions to the variabl
 ```javascript
 $.release(a, b, c, d, ...);
 ```
-Calling *$.calc* as a procedure also creates subscriptions and to clear subscriptions you can pass a third argument to *$.calc*:
+Calling *$.calc* as a procedure also creates subscriptions and to clear them you can pass a third argument to the method:
 ```javascript
 const $$ = new $(null); // Dummy variable to hold subscriptions
 ...
@@ -51,6 +51,17 @@ $.calc((a) => {/* Do something */}, [a], $$);
 $.calc((b) => {/* Do something else */}, [b], $$);
 ...
 $.release($$);
+```
+The same variable can be used multiple times as a result of the *$.calc* method to merge different logics to the same data stream:
+```javascript
+const loadedData = new $([]);
+const removedItem = new $(null);
+const list = $.calc((data) => data, [loadedData]);
+$.calc((item, currentValue) => currentValue.filter(x => x !== item), [removedItem], list);
+loadedData.$ = [1, 2, 3, 4, 5];
+console.log(list.$); // [1, 2, 3, 4, 5]
+removedItem.$ = 3;
+console.log(list.$); // [1, 2, 4, 5]
 ```
 
 ## Creating reactive variables from asynchronous sources

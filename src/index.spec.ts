@@ -29,12 +29,13 @@ describe('$ tests', () => {
     });
 
     it('subscribe multiple times', () => {
-        var $$ = new $(null);
-        var a = new $(0);
-        $.calc((a) => i++, [a], $$);
-        $.calc((a) => i++, [a], $$);
-        var i = 0;
-        a.$ = 1;
-        expect(i).toEqual(2);
+        const loadedData = new $<any[]>([]);
+        const removedItem = new $<any>(null);
+        const list = $.calc((data) => data, [loadedData]);
+        $.calc((item, list) => list.filter(x => x !== item), [removedItem], list);
+        loadedData.$ = [1, 2, 3, 4, 5];
+        expect(list.$.length).toEqual(5);
+        removedItem.$ = 3;
+        expect(list.$.length).toEqual(4);
     });
 });

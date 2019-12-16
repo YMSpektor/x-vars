@@ -34,11 +34,11 @@ export default class $<T> {
         return result;
     }
 
-    static calc<TA, TR>(callback: (a: TA) => TR, values: [$<TA>], result?: $<TR>): $<TR>;
-    static calc<TA, TB, TR>(callback: (a: TA, b: TB) => TR, values: [$<TA>, $<TB>], result?: $<TR>): $<TR>;
+    static calc<TA, TR>(callback: (a: TA, r: TR) => TR, values: [$<TA>], result?: $<TR>): $<TR>;
+    static calc<TA, TB, TR>(callback: (a: TA, b: TB, r: TR) => TR, values: [$<TA>, $<TB>], result?: $<TR>): $<TR>;
     static calc(callback: (...args: any[]) => any, values: $<any>[], result?: $<any>): $<any> {
         const res = result || new $<any>(callback(...values.map(x => x.$)));
-        values.forEach(x => x.subscribe(res, () => res.$ = callback(...values.map(x => x.$))));
+        values.forEach(x => x.subscribe(res, () => res.$ = callback(...values.map(x => x.$), res.$)));
         return res;
     }
 
