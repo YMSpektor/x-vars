@@ -86,7 +86,7 @@ const fromObservable = $.gen(null, (emit) => observable.subscribe(
 const input = document.querySelector(...);
 const fromInput = $.gen(input.value, (emit) => {
 	input.onchange = (e) => {
-    	emit(e.target.value);
+        emit(e.target.value);
     }
 });
 ```
