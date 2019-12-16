@@ -1,0 +1,29 @@
+{
+  "name": "dollar-sign",
+  "version": "0.1.0",
+  "description": "A small JavaScript library for programming in a reactive style",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YMSpektor/dollar-sign.git"
+  },
+  "homepage": "https://github.com/YMSpektor/dollar-sign#readme",
+  "bugs": {
+    "url": "https://github.com/YMSpektor/dollar-sign/issues"
+  },
+  "author": "Yuri Spektor",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^24.0.23",
+    "@types/node": "^12.12.17",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.2.0",
+    "typescript": "^3.7.3"
+  },
+  "keywords": ["reactive", "rx", "rxjs", "typescript"]
+}
