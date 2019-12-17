@@ -25,5 +25,10 @@
     "ts-jest": "^24.2.0",
     "typescript": "^3.7.3"
   },
-  "keywords": ["reactive", "rx", "rxjs", "typescript"]
+  "keywords": [
+    "reactive",
+    "rx",
+    "rxjs",
+    "typescript"
+  ]
 }

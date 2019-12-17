@@ -90,4 +90,10 @@ const fromInput = $.gen(input.value, (emit) => {
     }
 });
 ```
-The first argument accepts the initial value, the second is a function to produce new values when needed. The new value will be assigned to the variable when *emit* function is called
+The first argument accepts the initial value, the second is a function to produce new values when needed. The method can also take an optional third argument where to put the result, similar to *$.calc*. The new value will be assigned to the variable when *emit* function is called.
+
+## Authors
+* Yuri Spektor
+
+## License
+MIT
