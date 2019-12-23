@@ -1,6 +1,6 @@
-# dollar-sign
+# x-vars
 
-**dollar-sign** is a small library for programming in a reactive style. It allows you to create reactive variables that act like cells in a spreadsheet - when you update any variable, all dependent variables will be updated automatically. Here is the example showing the difference between reactive and non-reactive variables (pseudocode):
+**x-vars** is a small library for programming in a reactive style. It allows you to create reactive variables that act like cells in a spreadsheet - when you update any variable, all dependent variables will be updated automatically. Here is the example showing the difference between reactive and non-reactive variables (pseudocode):
 
     // Non reactive variables
     var a = 10;
@@ -17,9 +17,9 @@
     console.log(c) // 20
 
 ## Basic usage
-Here is the code demonstrating how to implement the example above using *dollar-sign*
+Here is the code demonstrating how to implement the example above using *x-vars*
 ```javascript
-import $ from 'dollar-sign';
+import $ from 'x-vars';
 
 const a = new $(10);
 const b = new $(5);

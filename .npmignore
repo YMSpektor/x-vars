@@ -1,4 +1,3 @@
 tsconfig.json
-jest.config.json
+jest.config.js
 src
-examples

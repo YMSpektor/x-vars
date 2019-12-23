@@ -1,5 +1,5 @@
 {
-  "name": "dollar-sign",
+  "name": "x-vars",
   "version": "0.1.0",
   "description": "A small JavaScript library for programming in a reactive style",
   "main": "dist/index.js",
@@ -10,11 +10,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YMSpektor/dollar-sign.git"
+    "url": "git+https://github.com/YMSpektor/x-vars.git"
   },
-  "homepage": "https://github.com/YMSpektor/dollar-sign#readme",
+  "homepage": "https://github.com/YMSpektor/x-vars#readme",
   "bugs": {
-    "url": "https://github.com/YMSpektor/dollar-sign/issues"
+    "url": "https://github.com/YMSpektor/x-vars/issues"
   },
   "author": "Yuri Spektor",
   "license": "MIT",
